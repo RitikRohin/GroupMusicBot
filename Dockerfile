@@ -1,6 +1,6 @@
 FROM nikolaik/python-nodejs:python3.10-nodejs19
 
-# Fix Debian repo issue
+# Fix for expired Debian buster repositories
 RUN sed -i 's|deb.debian.org|archive.debian.org|g' /etc/apt/sources.list && \
     sed -i '/security/d' /etc/apt/sources.list && \
     apt-get update && \
