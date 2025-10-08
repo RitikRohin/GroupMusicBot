@@ -4,47 +4,20 @@
   "logo": "https://te.legra.ph/file/b8a0c1a00db3e57522b53.jpg",
   "keywords": ["python3", "telegram", "bot", "Espro", "MusicBot", "pyrogram"],
   "env": {
-    "API_ID": {
-      "description": "Get from https://my.telegram.org",
-      "required": true
-    },
-    "API_HASH": {
-      "description": "Get from https://my.telegram.org",
-      "required": true
-    },
-    "BOT_TOKEN": {
-      "description": "A Bot token from @BotFather",
-      "required": true
-    },
-    "MONGO_DB_URI": {
-      "description": "Get a MongoDB URL from https://cloud.mongodb.com",
-      "required": true
-    },
-    "OWNER_ID": {
-      "description": "Your Telegram user ID",
-      "required": true
-    },
-    "STRING_SESSION": {
-      "description": "Pyrogram v2 String from @EsproStringBot",
-      "required": true
-    },
-    "SUPPORT_CHANNEL": {
-      "description": "Support Channel Link",
-      "required": true
-    },
-    "SUPPORT_CHAT": {
-      "description": "Support Group Link",
-      "required": true
-    },
-    "LOGGER_ID": {
-      "description": "Private Group ID for logs",
-      "required": true
-    }
+    "API_ID": { "description": "Get this from https://my.telegram.org", "required": true },
+    "API_HASH": { "description": "Get this from https://my.telegram.org", "required": true },
+    "BOT_TOKEN": { "description": "Your bot token from @BotFather", "required": true },
+    "MONGO_DB_URI": { "description": "MongoDB connection URI", "required": true },
+    "OWNER_ID": { "description": "Your Telegram user ID", "required": true },
+    "STRING_SESSION": { "description": "Pyrogram v2 String Session", "required": true },
+    "SUPPORT_CHANNEL": { "description": "Support Channel link", "required": true },
+    "SUPPORT_CHAT": { "description": "Support Group link", "required": true },
+    "LOGGER_ID": { "description": "Private log group ID", "required": true }
   },
   "buildpacks": [
-    {"url": "heroku/python"},
-    {"url": "heroku/nodejs"},
-    {"url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"}
+    { "url": "heroku/python" },
+    { "url": "heroku/nodejs" },
+    { "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git" }
   ],
   "stack": "container"
 }
