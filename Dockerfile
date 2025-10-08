@@ -1,15 +1,23 @@
-FROM nikolaik/python-nodejs:python3.10-nodejs19
+FROM python:3.10-slim-bullseye
 
-# Fix for expired Debian buster repositories
-RUN sed -i 's|deb.debian.org|archive.debian.org|g' /etc/apt/sources.list && \
-    sed -i '/security/d' /etc/apt/sources.list && \
-    apt-get update && \
-    apt-get install -y --no-install-recommends ffmpeg && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+# Install system dependencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       ffmpeg \
+       git \
+       nodejs \
+       npm \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY . /app/
-WORKDIR /app/
-RUN pip3 install --no-cache-dir -U -r requirements.txt
+# Set working directory
+WORKDIR /app
 
+# Copy all project files
+COPY . .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -U -r requirements.txt
+
+# Start the bot
 CMD ["bash", "start"]
